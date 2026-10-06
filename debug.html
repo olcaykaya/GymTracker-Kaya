@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Veri Kontrol</title>
+<style>
+body{background:#0e0e10;color:#eee;font-family:-apple-system,sans-serif;margin:0;padding:16px;font-size:14px}
+h1{font-size:20px;margin:0 0 12px}
+.card{background:#1a1a1e;border-radius:12px;padding:12px;margin-bottom:12px}
+.card h2{font-size:15px;margin:0 0 8px;color:#9cf}
+.row{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px solid #2a2a30;word-break:break-all}
+.ok{color:#6f6}.bad{color:#f66}
+button{display:block;width:100%;padding:12px;margin:8px 0;border:0;border-radius:10px;background:#2d6cdf;color:#fff;font-size:15px}
+button.warn{background:#c0392b}
+textarea{width:100%;height:220px;background:#000;color:#0f0;border:1px solid #333;border-radius:8px;font-size:11px;box-sizing:border-box}
+</style></head><body>
+<h1>Veri Kontrol (sadece okur)</h1>
+<div id="out"></div>
+<script>
+var out=document.getElementById('out');
+var RAW={ls:{},idb:{},origin:location.origin};
+function card(title){var d=document.createElement('div');d.className='card';var h=document.createElement('h2');h.textContent=title;d.appendChild(h);out.appendChild(d);return d;}
+function row(c,a,b,cls){var r=document.createElement('div');r.className='row';var x=document.createElement('span');x.textContent=a;var y=document.createElement('span');y.textContent=b;if(cls)y.className=cls;r.appendChild(x);r.appendChild(y);c.appendChild(r);}
+function summarizeHistory(h){var ex=0,dates={},sets=0;if(!h||typeof h!=='object')return'yok';Object.keys(h).forEach(function(e){ex++;var d=h[e]||{};Object.keys(d).forEach(function(k){dates[k]=1;(d[k]||[]).forEach(function(s){if(s&&s.w)sets++;});});});return ex+' hareket, '+Object.keys(dates).length+' gün, '+sets+' set';}
+var c1=card('Adres');row(c1,'origin',location.origin);row(c1,'path',location.pathname);
+row(c1,'standalone (ikon)',String(!!navigator.standalone));
+var c2=card('localStorage');
+try{var n=localStorage.length;if(!n)row(c2,'(boş)','0 anahtar','bad');
+for(var i=0;i<n;i++){var k=localStorage.key(i);var v=localStorage.getItem(k);RAW.ls[k]=v;var info=(v.length/1024).toFixed(1)+' KB';
+if(k==='gh'){try{info+=' — '+summarizeHistory(JSON.parse(v));}catch(e){info+=' (bozuk)';}}
+row(c2,k,info);}}catch(e){row(c2,'hata',String(e),'bad');}
+var c3=card('IndexedDB gym_tracker_db/kv');
+var snapHist=null,idbGh=null,idbGd=null,idbGn=null,idbSl=null;
+try{var rq=indexedDB.open('gym_tracker_db');
+rq.onerror=function(){row(c3,'hata','açılamadı','bad');done();};
+rq.onsuccess=function(){var db=rq.result;
+if(!db.objectStoreNames.contains('kv')){row(c3,'kv store','yok','bad');db.close();done();return;}
+var st=db.transaction('kv','readonly').objectStore('kv').getAll();
+st.onsuccess=function(){var a=st.result||[];if(!a.length)row(c3,'(boş)','0 kayıt','bad');
+a.forEach(function(it){RAW.idb[it.key]=it;var s=JSON.stringify(it.value||'');var info=(s.length/1024).toFixed(1)+' KB';
+if(it.key==='gh'){idbGh=it.value;info+=' — '+summarizeHistory(it.value);}
+if(it.key==='gd')idbGd=it.value;if(it.key==='gn')idbGn=it.value;if(it.key==='session_log')idbSl=it.value;
+if(it.key==='__full_snapshot__'&&it.value){snapHist=it.value;info+=' — '+new Date(it.value.savedAt).toLocaleString()+' — '+summarizeHistory(it.value.history);}
+row(c3,it.key,info,'ok');});db.close();done();};
+st.onerror=function(){row(c3,'hata','okunamadı','bad');done();};};
+}catch(e){row(c3,'hata',String(e),'bad');done();}
+function done(){var c4=card('İşlemler');
+var b1=document.createElement('button');b1.textContent='Tüm Veriyi JSON Olarak İndir';
+b1.onclick=function(){var blob=new Blob([JSON.stringify(RAW)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='gym_ham_veri_'+Date.now()+'.json';a.click();};c4.appendChild(b1);
+var b2=document.createElement('button');b2.textContent='Özeti Kopyalanabilir Metin Yap';
+var ta=document.createElement('textarea');ta.style.display='none';
+b2.onclick=function(){var t='origin: '+location.origin+'\nLS: '+Object.keys(RAW.ls).join(', ')+'\nIDB: '+Object.keys(RAW.idb).join(', ');ta.value=t;ta.style.display='block';ta.select();};
+c4.appendChild(b2);c4.appendChild(ta);
+var hist=idbGh||(snapHist&&snapHist.history);
+if(hist){var b3=document.createElement('button');b3.className='warn';b3.textContent='IndexedDB Verisini localStorage\'a Geri Yükle';
+b3.onclick=function(){if(!confirm('IndexedDB verisi localStorage\'a yazılsın mı?'))return;
+try{localStorage.setItem('gh',JSON.stringify(hist));
+var gd=idbGd||(snapHist&&snapHist.days);if(gd)localStorage.setItem('gd',JSON.stringify(gd));
+var gn=idbGn||(snapHist&&snapHist.notes);if(gn)localStorage.setItem('gn',JSON.stringify(gn));
+var sl=idbSl||(snapHist&&snapHist.sessionLog);if(sl)localStorage.setItem('session_log',JSON.stringify(sl));
+alert('Geri yüklendi. Ana uygulamayı aç.');}catch(e){alert('Hata: '+e);}};
+c4.appendChild(b3);}
+}
+</script></body></html>
