@@ -514,6 +514,71 @@ function getImages(){return load('gi')||{};}
 function saveImages(m){save('gi',m);}
 
 var days=getDays(), notes=getNotes(), images=getImages();
+var PROGRAM_V2=[{"id":"p1","label":"GUN 1","tag":"Gogus & Sirt","sub":"Ust gogus + lat genisligi","color":"#1a6cf6","exercises":[{"name":"Incline Dumbbell Press","sets":"3x6-10","rir":"RIR 1-2","brand":"Dumbbell","bc":"#888","svg":"incline_db","tip":"Ust gogus, gunun ana hareketi. Once 2 isinma seti: ~%50x10, ~%75x5. Istersen Power Smith Incline ile degistir.","alias":["incline dumbbell press"]},{"name":"Arsenal M1 Lat Pullover","sets":"3x8-12","rir":"RIR 1","brand":"Arsenal","bc":"#378ADD","svg":"lat_pulldown","tip":"Sirtin ilk hareketi: once 1 isinma seti (~%60x8). Lat gerilmis pozisyonda calisir.","alias":["arsenal m1 lat pullover"]},{"name":"Machine Chest Press","sets":"2x6-10","rir":"RIR 1-2","brand":"Panatta","bc":"#1D9E75","svg":"power_smith","tip":"Gogus incline'dan sicak, isinma gerekmez.","alias":["machine chest press"]},{"name":"Lat Pulldown - Convergent","sets":"3x8-12","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"lat_pulldown","tip":"Lat genisligi. Tam uzanma, kurek kemiklerini asagi cek.","alias":["lat pulldown - convergent"]},{"name":"Chest Support row","sets":"2x8-12","rir":"RIR 1","brand":"Arsenal","bc":"#378ADD","svg":"arsenal_row","tip":"Orta sirt + arka omuz.","alias":["chest support row","arsenal lever row"]},{"name":"Standing Multi Flight - Lateral","sets":"3x12-15","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"multi_flight","tip":"Yan omuz, haftanin 1. temasi.","alias":["standing multi flight - lateral"]}]},{"id":"p2","label":"GUN 2","tag":"Omuz & Kol","sub":"Oncelik gunu - yan omuz + kollar","color":"#9b3fc8","exercises":[{"name":"Standing Multi Flight - Lateral","sets":"4x10-15","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"multi_flight","tip":"Gunun ana hareketi. Once 1 hafif isinma seti. TAM ROM, kontrollu negatif.","alias":["standing multi flight - lateral"]},{"name":"Shoulder Press Machine","sets":"2x6-10","rir":"RIR 1-2","brand":"FreeMotion","bc":"#D4537E","svg":"multi_press","tip":"On omuz icin yeterli; ayrica on omuz izolasyonu yok.","alias":["shoulder press machine"]},{"name":"Three Angles Bicep - Agir","sets":"3x6-10","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"three_angles","tip":"Kollarin ilk hareketi: 1 isinma seti.","alias":["three angles bicep - agir","three angles bicep machine"]},{"name":"Standing Total Arms - Tricep","sets":"3x8-12","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"total_arms","tip":"Tricepsin ilk hareketi: 1 isinma seti.","alias":["standing total arms - tricep"]},{"name":"Incline DB Curl","sets":"2x8-12","rir":"RIR 1","brand":"Dumbbell","bc":"#888","svg":"incline_db","tip":"Gerilmis pozisyon: kollar tam asagida baslar.","alias":["incline db curl"]},{"name":"Cable Overhead Tricep Extension","sets":"2x10-15","rir":"RIR 1","brand":"FreeMotion","bc":"#D4537E","svg":"cable_row","tip":"Uzun bas, gerilmis pozisyon. Kablo asagidan gelsin.","alias":["cable overhead tricep extension"]},{"name":"Arsenal M1 Rear Delt","sets":"2x12-20","rir":"RIR 0-1","brand":"Arsenal","bc":"#378ADD","svg":"pec_deck","tip":"Arka omuz.","alias":["arsenal m1 rear delt"]}]},{"id":"p3","label":"GUN 3","tag":"Alt Vucut A","sub":"Diz isinmasi + biceps","color":"#3b9a3b","osgood":"Once diz isinmasi (~10 dk): bantli yan adim 2x10 (her yone), wall quarter squat 2x10 (10 sn bekle), step lunge 3x10 (5 sn bekle, once sag), quad stretch 4x30 sn. AGRI KURALI: hareket sirasinda en fazla 3/10, ertesi sabah diz normale donmeli. Agri yapan bacak hareketini atla.","exercises":[{"name":"Seated Leg Curl","sets":"3x8-12","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"leg_curl","tip":"Dize yuk bindirmez, tam yogunluk.","alias":["seated leg curl"]},{"name":"Leg Extension - Izometrik (Faz 1)","sets":"5x30-45sn","rir":"-","brand":"Panatta","bc":"#1D9E75","svg":"leg_curl","tip":"Hafta 1-4: diz ~60 derece, makineyi kilitlemis gibi it ve tut. Agirlik alanina yuku, tekrar alanina SANIYE yaz. Agri 3/10 ustundeyse atla. Hafta 5'ten sonra diz protokolune gore degisir.","alias":["__none__"],"startW":40},{"name":"Hip Thrust Makinesi","sets":"2x8-12","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"generic","tip":"Tepede kalcayi 1 sn sik. Diz sabit.","alias":["hip thrust makinesi","hip thrust"],"startW":90},{"name":"Hip Adduction","sets":"2x10-15","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"generic","tip":"Ic uyluk; dize yuk bindirmeden uyluk cevresini buyutur.","alias":["hip adduction","machine seated hip adduction"],"startW":100},{"name":"Calf Extension","sets":"3x10-15","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"leg_curl","tip":"Altta 1 sn esnet, tepede 1 sn sik.","alias":["calf eztension","calf extension","super calf hack"]},{"name":"Arsenal M1 Rear Delt","sets":"2x12-20","rir":"RIR 0-1","brand":"Arsenal","bc":"#378ADD","svg":"pec_deck","tip":"Ust vucut eki.","alias":["arsenal m1 rear delt"]},{"name":"Hammer Curl (DB)","sets":"3x8-12","rir":"RIR 1","brand":"Dumbbell","bc":"#888","svg":"incline_db","tip":"Kol kalinligi (brachialis).","alias":["hammer curl (db)"]}]},{"id":"p4","label":"GUN 4","tag":"Ust Vucut","sub":"Ust gogus + lat + kol","color":"#e05a30","exercises":[{"name":"Power Smith Dual System - Incline","sets":"3x6-10","rir":"RIR 1-2","brand":"Panatta","bc":"#1D9E75","svg":"power_smith","tip":"Ust gogus, 2. temas. Once 2 isinma seti.","alias":["power smith dual system - incline"]},{"name":"Lat Pulldown - Neutral Grip","sets":"2x8-12","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"lat_pulldown","tip":"Sirtin ilk hareketi: 1 isinma seti.","alias":["lat pulldown - neutral grip"]},{"name":"Cable Fly - Low to High","sets":"2x10-15","rir":"RIR 1","brand":"FreeMotion","bc":"#D4537E","svg":"cable_row","tip":"Ust gogus. Agirlik tek kol icin.","alias":["cable fly - low to high"]},{"name":"FreeMotion Tek Kol Row","sets":"2x8-12","rir":"RIR 1","brand":"FreeMotion","bc":"#D4537E","svg":"cable_row","tip":"Agirlik tek kol icin.","alias":["freemotion tek kol row","freemotion tek kol cable row"]},{"name":"Standing Multi Flight - Lateral","sets":"3x10-15","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"multi_flight","tip":"Yan omuz, 3. temas.","alias":["standing multi flight - lateral"]},{"name":"Bayesian Cable Curl","sets":"2x10-15","rir":"RIR 1","brand":"FreeMotion","bc":"#D4537E","svg":"cable_row","tip":"Kablo arkadan gelsin. Agirlik tek kol icin.","alias":["bayesian cable curl"]},{"name":"Superfrench press machine","sets":"2x10-15","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"arm_extension","tip":"Uzun bas.","alias":["superfrench press machine"]}]},{"id":"p5","label":"GUN 5","tag":"Alt Vucut B","sub":"Diz isinmasi + omuz/triceps","color":"#3b9a3b","osgood":"Once diz isinmasi (~10 dk): bantli yan adim 2x10 (her yone), wall quarter squat 2x10 (10 sn bekle), step lunge 3x10 (5 sn bekle, once sag), quad stretch 4x30 sn. AGRI KURALI: hareket sirasinda en fazla 3/10, ertesi sabah diz normale donmeli. Agri yapan bacak hareketini atla.","exercises":[{"name":"Seated Leg Curl","sets":"2x8-12","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"leg_curl","tip":"3 sn yavas negatif.","alias":["seated leg curl"]},{"name":"45 Derece Back Extension","sets":"2x10-15","rir":"RIR 1","brand":"Other","bc":"#888","svg":"generic","tip":"RDL yerine, hamstring odakli. Ped kalca kemiginin hemen altinda; kalcadan bukul, sirt duz. Tepede vucut duz cizgide dur, geriye esneme. Kolay gelince plaka gogse.","alias":["45 derece back extension","back extension"],"startW":"BW"},{"name":"Tek Bacak Leg Press","sets":"4x10-15","rir":"RIR 1-2","brand":"Panatta","bc":"#1D9E75","svg":"leg_curl","tip":"Set 1-2 SAG bacak, set 3-4 SOL bacak (sol, sagin tekrarinda kalir). Agirlik tek bacak. Faz 1 (hafta 1-4): kisa aralik, diz 90 derecenin altina inmez, 3 sn inis / 3 sn cikis. Agri yaparsa atla.","alias":["tek bacak leg press"],"startW":70},{"name":"Calf Extension","sets":"3x10-15","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"leg_curl","tip":"Altta 1 sn esnet.","alias":["calf eztension","calf extension","super calf hack"]},{"name":"Standing Multi Flight - Lateral","sets":"4x12-20","rir":"RIR 0-1","brand":"Panatta","bc":"#1D9E75","svg":"multi_flight","tip":"Yan omuz, 4. temas.","alias":["standing multi flight - lateral"]},{"name":"Alternate Arm Extension","sets":"3x10-15","rir":"RIR 1","brand":"Panatta","bc":"#1D9E75","svg":"arm_extension","tip":"Son set tek kol.","alias":["alternate arm extension"]}]}];
+
+// ── PROGRAM v2 (Ekim 2026) ─────────────────────────────────────────────
+// Yeni 5 gunluk sirali program. Eski hareketlerin ID'leri isim eslesmesiyle
+// korunur; boylece gecmis agirliklar, PR'lar ve notlar kaybolmaz.
+// Eslesmeyen eski hareketler "ARSIV" gunune tasinir (istatistikler icin).
+function normExName(s){return String(s||'').toLowerCase().replace(/\s+/g,' ').trim();}
+function lastHistDate(exId, hist){var h=hist[exId];if(!h)return '';var ks=Object.keys(h).filter(function(k){return (h[k]||[]).some(function(s){return s.w;});});ks.sort();return ks.length?ks[ks.length-1]:'';}
+function isProgramV2(){return load('program_version')==='v2';}
+function applyProgramV2(){
+  var oldDays=getDays();
+  var hist=getHistory();
+  var pool=[];
+  oldDays.forEach(function(d){(d.exercises||[]).forEach(function(e){pool.push({ex:e,day:d,last:lastHistDate(e.id,hist),used:false});});});
+  var newDays=JSON.parse(JSON.stringify(PROGRAM_V2));
+  newDays.forEach(function(d){
+    d.exercises.forEach(function(e,i){
+      var al=e.alias||[normExName(e.name)];
+      var cands=pool.filter(function(p){return !p.used && al.indexOf(normExName(p.ex.name))!==-1;});
+      cands.sort(function(a,b){
+        var ba=(a.ex.brand===e.brand)?1:0, bb=(b.ex.brand===e.brand)?1:0;
+        if(ba!==bb) return bb-ba;
+        return b.last.localeCompare(a.last);
+      });
+      if(cands.length){cands[0].used=true; e.id=cands[0].ex.id;}
+      else { e.id='v2'+d.id+'e'+(i+1); }
+      delete e.alias;
+    });
+  });
+  var leftovers=pool.filter(function(p){return !p.used;}).map(function(p){
+    var c=JSON.parse(JSON.stringify(p.ex)); c.tip='(Eski program: '+(p.day.tag||'')+') '+(c.tip||''); return c;});
+  if(leftovers.length){
+    newDays.push({id:'arsiv',label:'ARSIV',tag:'Eski Program',sub:'Sadece gecmis kayitlar - antrenmanda kullanma',color:'#444',archived:true,exercises:leftovers});
+  }
+  save('gd_v1_backup', oldDays);
+  save('program_v2_date', getTodayKey());
+  save('program_version','v2');
+  saveDays(newDays);
+  days=getDays();
+}
+function revertProgramV2(){
+  var b=load('gd_v1_backup'); if(!b) return;
+  saveDays(b); save('program_version','v1'); days=getDays();
+}
+// Gecmisi olmayan hareket icin onerilen agirlik: ayni isimli baska hareketin
+// son seansi, yoksa programdaki tahmini baslangic agirligi (startW).
+function getFallbackSets(ex){
+  var hist=getHistory(); var key=normExName(ex.name); var best=null, bestDate='';
+  days.forEach(function(d){(d.exercises||[]).forEach(function(o){
+    if(o.id===ex.id || normExName(o.name)!==key) return;
+    var ld=lastHistDate(o.id,hist); if(ld && ld>bestDate){bestDate=ld; best=hist[o.id][ld];}
+  });});
+  if(best) return best.filter(function(s){return s.w;});
+  if(ex.startW!==undefined) return [{w:String(ex.startW),r:''}];
+  return null;
+}
+function getNextV2Day(){
+  if(!isProgramV2()) return null;
+  var since=load('program_v2_date')||'0000';
+  var order=['p1','p2','p3','p4','p5'];
+  var log=buildDerivedLog().filter(function(l){return l.date>=since && order.indexOf(l.dayId)!==-1;});
+  if(!log.length) return 'p1';
+  log.sort(function(a,b){ if(a.date!==b.date) return b.date.localeCompare(a.date); return order.indexOf(b.dayId)-order.indexOf(a.dayId);});
+  return order[(order.indexOf(log[0].dayId)+1)%order.length];
+}
 
 // One-time fix: remove phantom "trained today" entries that have no real weight data
 (function removePhantomTodayEntry(){
@@ -763,11 +828,30 @@ function buildHome(){
     startSessionTimer();
   }
 
+  // ── Program v2 gecis / siradaki antrenman ──────────────────────────
+  var nextV2 = getNextV2Day();
+  if(!isProgramV2()){
+    var v2b=document.createElement('div'); v2b.className='backup-reminder';
+    v2b.innerHTML='<b>Yeni program hazir (v2):</b> 5 gunluk sirali program. Eski agirliklarin, PR\'larin ve notlarin korunur; eslesmeyen eski hareketler ARSIV gunune tasinir.';
+    var v2btn=document.createElement('button'); v2btn.className='backup-reminder-btn'; v2btn.textContent='Yeni programa gec';
+    v2btn.onclick=function(){ if(!confirm('Program v2 yuklensin mi? Gecmis verilerin silinmez, istersen geri donebilirsin.')) return; applyProgramV2(); buildHome(); window.scrollTo(0,0); };
+    v2b.appendChild(document.createElement('br')); v2b.appendChild(v2btn); c.appendChild(v2b);
+  } else if(nextV2 && !activeSession){
+    var nd=days.find(function(x){return x.id===nextV2;});
+    if(nd){
+      var nb=document.createElement('div'); nb.className='day-card'; nb.style.cssText='border-left-color:'+nd.color+';border-color:#f0a500;background:#1a1400;';
+      nb.onclick=function(){openDay(nd.id);};
+      nb.innerHTML='<div><span class="day-badge" style="background:#f0a500;color:#1a1400">SIRADAKI</span><div class="day-name">'+nd.label+' - '+nd.tag+'</div><div class="day-info">Gun kacsa da sira bozulmaz: bir sonraki gidiste bunu yap.</div></div><div class="day-arrow">&#8250;</div>';
+      c.appendChild(nb);
+    }
+  }
+
   days.forEach(function(d){
     var nc=d.exercises.filter(function(e){return notes[e.id];}).length;
     var isActiveDay=activeSession&&activeSession.dayId===d.id;
     var el=document.createElement('div');
     el.className='day-card'; el.style.borderLeftColor=d.color;
+    if(d.archived) el.style.opacity='0.45';
     if(isActiveDay) el.style.borderColor='#1D9E75';
     el.onclick=function(){openDay(d.id);};
     var activeTag=isActiveDay?'<span style="font-size:10px;color:#1D9E75;margin-left:6px;">&#9679; Aktif</span>':'';
@@ -778,6 +862,13 @@ function buildHome(){
       +'<div class="day-arrow">&#8250;</div>';
     c.appendChild(el);
   });
+  if(isProgramV2() && load('gd_v1_backup')){
+    var rv=document.createElement('div'); rv.style.cssText='text-align:center;margin:14px 0 4px;';
+    var rvb=document.createElement('a'); rvb.href='#'; rvb.style.cssText='font-size:11px;color:#555;text-decoration:none;';
+    rvb.textContent='Eski programa geri don';
+    rvb.onclick=function(e){ e.preventDefault(); if(!confirm('Eski 6 gunluk programa donulsun mu? Kayitlarin silinmez.')) return; revertProgramV2(); buildHome(); };
+    rv.appendChild(rvb); c.appendChild(rv);
+  }
 }
 
 function renderDay(){
@@ -987,6 +1078,7 @@ function renderDay(){
       var lastKey=lastSessKeys.find(function(k){return k!==todayKey;});
       // set rows
       var bestSessionCombo = getBestSessionCombo(ex.id);
+      var fbSets = lastKey ? null : getFallbackSets(ex);
       var wtsets=document.createElement('div'); wtsets.className='wt-sets';
       wtSets[ex.id].forEach(function(setObj,si3){
         var row=document.createElement('div'); row.className='wt-set-row';
@@ -994,14 +1086,15 @@ function renderDay(){
         var prevSetEarly = (lastKey && exHistory[lastKey] && exHistory[lastKey][si3]) ? exHistory[lastKey][si3] : null;
         // Placeholder shows only the LAST session's weight for this exact set slot (no mixing with best-ever).
         var winp=document.createElement('input'); winp.className='wt-inp'; winp.type='number';
-        winp.placeholder=(prevSetEarly&&prevSetEarly.w)?prevSetEarly.w:'lb';
+        var fbSet = (fbSets && fbSets.length) ? (fbSets[si3]||fbSets[fbSets.length-1]) : null;
+        winp.placeholder=(prevSetEarly&&prevSetEarly.w)?prevSetEarly.w:((fbSet&&fbSet.w)?('~'+fbSet.w):'lb');
         winp.value=setObj.w; winp.min='0'; winp.step='0.5';
         winp.oninput=(function(idx){return function(){wtSets[ex.id][idx].w=this.value;persistTodaySets(ex.id);};})(si3);
         winp.onclick=function(e){e.stopPropagation();};
         var wunit=document.createElement('span'); wunit.className='wt-unit'; wunit.textContent='lb';
         var wx=document.createElement('span'); wx.className='wt-x'; wx.textContent='×';
         var rinp=document.createElement('input'); rinp.className='wt-rep-inp'; rinp.type='number';
-        rinp.placeholder=(prevSetEarly&&prevSetEarly.r)?prevSetEarly.r:'rep';
+        rinp.placeholder=(prevSetEarly&&prevSetEarly.r)?prevSetEarly.r:((fbSet&&fbSet.r)?('~'+fbSet.r):'rep');
         rinp.value=setObj.r; rinp.min='0';
         rinp.oninput=(function(idx){return function(){wtSets[ex.id][idx].r=this.value;persistTodaySets(ex.id);};})(si3);
         rinp.onclick=function(e){e.stopPropagation();};
@@ -1347,11 +1440,19 @@ function buildDerivedLog(){
   // so it works even if user never pressed Baslat/Bitir.
   var history = getHistory();
   var byDate = {}; // date -> {exercises:[{exId,name,brand,dayId,dayTag,sets}]}
-  days.forEach(function(d){
+  // v2 sonrasi: gecis tarihinden onceki kayitlar eski gun yapisina gore gruplanir
+  var v2Cut = isProgramV2() ? load('program_v2_date') : null;
+  var oldStruct = v2Cut ? load('gd_v1_backup') : null;
+  var passes = (v2Cut && oldStruct) ? [{ds:oldStruct, keep:function(k){return k<v2Cut;}}, {ds:days, keep:function(k){return k>=v2Cut;}}]
+                                    : [{ds:days, keep:function(){return true;}}];
+  passes.forEach(function(pass){
+  pass.ds.forEach(function(d){
+    if(d.archived && v2Cut) return;
     d.exercises.forEach(function(ex){
       var exH = history[ex.id];
       if(!exH) return;
       Object.keys(exH).forEach(function(dateKey){
+        if(!pass.keep(dateKey)) return;
         var sets = exH[dateKey].filter(function(s){return s.w;});
         if(sets.length===0) return;
         if(!byDate[dateKey]) byDate[dateKey] = {};
@@ -1359,6 +1460,7 @@ function buildDerivedLog(){
         byDate[dateKey][d.id].exercises.push({name:ex.name, brand:ex.brand||'', sets:sets});
       });
     });
+  });
   });
   // Manually added days (no weights known) still count as trained days.
   (load('session_log')||[]).forEach(function(s){
@@ -1788,7 +1890,10 @@ function computeMuscleFocus(){
   var dayToGroup = {
     'd1':{'Gogus':4,'Kol':2}, 'd2':{'Sirt':4,'Kol':2}, 'd3':{'Kol':6},
     'd4':{'Gogus':3,'Omuz':2,'Kol':1}, 'd5':{'Sirt':4,'Omuz':2,'Kol':1},
-    'd6':{'Omuz':3,'Bacak':4}
+    'd6':{'Omuz':3,'Bacak':4},
+    'p1':{'Gogus':3,'Sirt':3,'Omuz':1}, 'p2':{'Omuz':3,'Kol':4},
+    'p3':{'Bacak':4,'Omuz':1,'Kol':1}, 'p4':{'Gogus':2,'Sirt':2,'Omuz':1,'Kol':2},
+    'p5':{'Bacak':3,'Omuz':2,'Kol':1}, 'arsiv':{'Gogus':1,'Sirt':1,'Omuz':1,'Kol':1,'Bacak':1}
   };
   days.forEach(function(d){
     d.exercises.forEach(function(ex){
@@ -1960,6 +2065,7 @@ function deleteWorkoutDay(dateKey, dayId){
   // remove from weight history for exercises belonging to this day
   var history = getHistory();
   var d = days.find(function(x){return x.id===dayId;});
+  if(!d){ var ob=load('gd_v1_backup')||[]; d = ob.find(function(x){return x.id===dayId;}); }
   if(d){
     d.exercises.forEach(function(ex){
       if(history[ex.id] && history[ex.id][dateKey]){
